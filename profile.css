@@ -1,0 +1,29 @@
+
+.element-img {
+    /* height: 6rem; */
+    height: 100%;
+    border-top-left-radius: 24px;
+    border-bottom-left-radius: 24px;
+}
+
+.elements {
+    width: 50%;
+}
+
+.element {
+    height: 8rem;
+}
+
+.profile-section > .elements .element {
+    width: 100%;
+    background-color: #FAFAF5;
+    border: 2px solid #E6E6E6;
+    padding-right: 2rem;
+    border-radius: 24px;
+}
+
+.profile-section > .elements .elements.buttons {
+    background: white;
+    padding: 0.4rem 1.5rem;
+    border-radius: 1rem;
+}
