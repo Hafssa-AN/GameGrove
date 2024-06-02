@@ -15,6 +15,7 @@
     height: 8rem;
     border-radius: 24px;
     width: 60%;
+    overflow: hidden;
 }
 
 .friend-element .btns button {
