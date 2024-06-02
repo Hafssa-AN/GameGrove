@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Se connecter</title>
+    <title>S'inscrire</title>
     <link rel="stylesheet" href="../css/sinscrire.css">
 </head>
 <body>
@@ -30,18 +30,33 @@
         </nav>
     </header>
 
-    <h1 class="text-center sinscrire-h1">Se connecter</h1>
+    <h1 class="text-center sinscrire-h1">S'inscrire</h1>
     <form action="" class="sinscrire-form">
         <div class="flex justify-content-between align-items-center">
-            <label>Gmail: </label>
-            <input type="email" name="email" />
+            <label>Nom: </label>
+            <input type="text" name="nom" />
         </div>
-
+        <div class="flex justify-content-between align-items-center">
+            <label>Prenom: </label>
+            <input type="text" name="prenom" />
+        </div>
+        <div class="flex justify-content-between align-items-center">
+            <label>Pays: </label>
+            <input type="text" name="prenom" />
+        </div>
+        <div class="flex justify-content-between align-items-center">
+            <label>Gmail: </label>
+            <input type="email" name="gmail" />
+        </div>
         <div class="flex justify-content-between align-items-center">
             <label>Mot de pass: </label>
             <input type="password" name="password" required/>
         </div>
-        <input type="submit" value="Se connecter" class="cursor-pointer">
+        <div class="flex justify-content-between align-items-center">
+            <label>Confirmer le Mot-de-pass: </label>
+            <input type="password" name="confirm-password" required/>
+        </div>
+        <input type="submit" value="Creer mon compte" class="cursor-pointer">
     </form>
 
 

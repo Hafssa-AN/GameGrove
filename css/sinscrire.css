@@ -1,0 +1,70 @@
+@import url("./index.css");
+
+.sinscrire-form {
+    max-width: 50rem;
+    margin: auto;
+}
+
+.sinscrire-h1 {
+    font-family: 'Newsreader';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 64px;
+    line-height: 120%;
+    color: #000000;
+    position: relative;
+    width: fit-content;
+    text-align: center;
+    margin: auto;
+    margin-bottom: 3rem;
+}
+
+
+.sinscrire-h1::after {
+    content: "";
+    background-color: #000000;
+    height: 2px;
+    position: absolute;
+    left: -40%;
+    right: -40%;
+    bottom: 0;
+    opacity: 20%;
+
+}
+
+
+.sinscrire-form input {
+    border-radius: 20px;
+    padding: 0.4rem 2rem;
+    border: 2px solid rgba(0, 0, 0, 0.06);
+    background: #FFFFFF;  
+}
+
+.sinscrire-form input[type="submit"] {
+    border-radius: 20px;
+    padding: 0.8rem 2rem;
+    border: 2px solid rgba(0, 0, 0, 0.06);
+    background: #426B1F; 
+    color: white;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    display: block;
+}
+
+.sinscrire-form label {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 130%;
+}
+
+.sinscrire-form > div  {
+    margin-bottom: 5rem;
+}
+input:-webkit-autofill {
+    background: #fff !important;
+}
+
+
