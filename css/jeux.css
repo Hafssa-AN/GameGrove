@@ -1,0 +1,102 @@
+@import url("./index.css");
+
+figure {
+    margin: 0;
+    min-width: 1rem;
+}
+
+.search-input {
+    background: #FFFFFF;
+    border: 1px solid #C2C2C2;
+    border-radius: 20px;
+    padding: 0.4rem 1rem;
+}
+
+.search-input::placeholder {
+    text-align: center;
+}
+
+.rechercher-btn {
+    background: #426B1F;
+    border-radius: 8px;
+    border-radius: 0.5rem;
+    color: white;
+    padding: 0.5rem 1rem;
+    margin-left: 1rem;
+}
+
+.jeux-h1 {
+    font-family: 'Newsreader';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 64px;
+    line-height: 120%;
+}
+
+.jeux-container img {
+    height: 70%;
+    object-fit: cover;
+    margin: 0;
+}
+
+figure.jeux-container {
+
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+figure.jeux-container figcaption {
+    background-color: #E6E6E6;
+    padding: 1rem;
+    min-height: 12rem;
+    display: block;
+    margin-top: -15px;
+
+}
+
+figure.jeux-container figcaption p{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    color: #6D6D6D;
+}
+
+figure.jeux-container figcaption .btns button {
+    background: #426B1F;
+    border-radius: 8px;
+    color: white;
+    padding: 0.4rem 1rem;
+    outline: none;
+    appearance: none;
+    border: none;
+
+}
+
+figure.jeux-container figcaption h3 {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 130%;
+    color: #000000;
+}
+
+.jeux-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+}
+
+@media only screen and (min-width: 768px) {
+    .jeux-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media only screen and (min-width: 1000px) {
+    .jeux-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}

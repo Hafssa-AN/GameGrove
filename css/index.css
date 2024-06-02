@@ -1,7 +1,22 @@
+@import url("./utils.css");
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+body {
+    /* font-family: Arial, Helvetica, sans-serif; */
+}
+
+input {
+    outline: none;
+    -webkit-appearance:     none;
+    -moz-appearance:        none;
+    -ms-appearance:         none;
+    -o-appearance:          none;
+    appearance:             none;
+    box-shadow: none !important;
 }
  
 a {
@@ -113,9 +128,6 @@ ul {
     flex-direction: row-reverse;
 }
 
-
-
-
 footer{
     padding: 1rem 15rem;
     text-align: center;
@@ -146,20 +158,4 @@ footer > div img {
     font-weight: 100;
     text-align: start;
     margin-top: 4remd;
-}
-
-.flex {
-    display: flex;
-}
-
-.align-items-center {
-    align-items: center;
-}
-
-.justify-content-center {
-    justify-content: center;
-}
-
-.justify-content-between {
-    justify-content: space-between;
 }
