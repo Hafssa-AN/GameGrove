@@ -1,0 +1,79 @@
+@import url("./index.css");
+
+.game-detail-grid figure {
+    border-radius: 24px;
+    border: 2px solid #E6E6E6;
+    overflow: hidden;
+}
+
+.game-detail-grid figure img {
+    height: 70%;
+    object-fit: cover;
+}
+
+.game-detail-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 40rem;
+    gap: 3rem;
+    /* overflow: scroll; */
+}
+
+.score-container {
+    overflow: scroll;
+}
+.game-detail-grid figcaption {
+    background-color: #FAFAF5;
+}
+
+.game-detail-grid figcaption strong {
+    font-size: 36px;
+    line-height: 36px;
+    font-weight: 600;
+}
+
+.game-detail-grid figcaption p {
+    color: #6D6D6D;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 36px;
+}
+
+.game-detail-grid figcaption .btns button {
+    border-radius: 8px;
+    background-color: #426B1F;
+    color: white;
+    padding: 0.7rem 1.5rem;
+}
+
+
+/* second section  */
+
+.score-container .element {
+    height: 6rem;
+    border: solid 2px #E6E6E6;
+}
+
+.score-container {
+    background-color: #FAFAF5;
+    border: solid 2px #E6E6E6;
+    border-radius: 2px;
+}
+
+.score-container button {
+    background-color: white;
+    padding: 0.7rem 1rem;
+    border-radius: 20px;
+    border: solid 2px rgba(0, 0, 0, 0.06);
+}
+
+.score-container .score-number {
+    background-color: white;
+    padding: 1rem 2rem;
+    border: solid 2px rgba(0, 0, 0, 0.06);
+    border-radius: 1rem;
+}
+
+.element-detail {
+
+}
