@@ -1,0 +1,25 @@
+@import url("./index.css");
+
+
+.ajouter-title {
+    font-family: 'Newsreader';
+    font-weight: 400;
+    font-size: 64px;
+    line-height: 76.8px;
+    letter-spacing: -2%;
+}
+
+.friend-element {
+    background-color: #FAFAF5;
+    border: solid 2px #E6E6E6;
+    height: 8rem;
+    border-radius: 24px;
+    width: 60%;
+}
+
+.friend-element .btns button {
+    background-color: #FFFFFF;
+    border: solid 2px rgba(0, 0, 0, 0.06);
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+}
