@@ -7,14 +7,13 @@ include_once "libs/maLibSecurisation.php";
 
 $addArgs = "";
 $dataQS = array();
+$feedback = false;
 
 if ($action = valider("action")) {
     
     ob_start();
     switch ($action) {
         case 'connecter':
-            
-            $feedback = false;
             if ($email = valider("email")) {
                 if ($passe = valider("password")) {
                     if (verifUser($email, $passe)) {
@@ -41,14 +40,15 @@ if ($action = valider("action")) {
 
         case 'inscrire':    
             if ($email = valider("email")) {
-
-                if ($passe = valider("password")) {
+                if(!emailExists($email))
+                {
+                if ($passe = valider("password")) { 
                     if ($confirm_passe = valider("confirm-password")) {
                         if ($passe === $confirm_passe) {
                             if ($nom = valider("nom")) {
                                 if ($pren = valider("prenom")) {
                                     if ($pays = valider("pays")) {
-                                        mkUser($nom, $pren, $pays, $email, $passe);    
+                                        mkUser($nom, $pren, $pays, $email, $passe);
                                         $addArgs = "?view=connecter";
                                     } else {
                                         $feedback = "Pays absent";
@@ -65,8 +65,11 @@ if ($action = valider("action")) {
                     } else {
                         $feedback = "Confirmation du mot de passe absente";
                     }
-                } else {
-                    $feedback = "Mot de passe absent";
+                }
+                else
+                    $feedback ="Mot de passe absent";
+             } else {
+                    $feedback ="email deja exist";
                 }
             } else {
                 $feedback = "Email absent";
@@ -93,12 +96,10 @@ if ($action = valider("action")) {
             $addArgs = "?view=index";
             break;
     }
-
     if ($feedback) {
         $_SESSION['feedback'] = $feedback;
     }
 }
-
 $urlBase = dirname($_SERVER["PHP_SELF"]) . "/index.php";
 header("Location:" . $urlBase . $addArgs);
 ob_end_flush();

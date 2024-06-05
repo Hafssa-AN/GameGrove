@@ -1,5 +1,7 @@
 <?php
 
+include_once 'config.php';
+
 function SQLGetChamp($sql)
 {
 	global $BDD_host;
@@ -52,9 +54,41 @@ function SQLInsert($sql)
 	if ($res === false) {
 		$e = $dbh->errorInfo(); 
 		die("<font color=\"red\">SQLInsert: Erreur de requete : " . $e[2] . "</font>");
-	}
-
+	}                                                                                   
 	$lastInsertId = $dbh->lastInsertId();
 	$dbh = null; 
 	return $lastInsertId;
+}
+
+function emailExists($email) {
+	global $BDD_host;
+	global $BDD_base;
+	global $BDD_user;
+	global $BDD_password;
+
+    try {
+        // Connexion à la base de données
+        $pdo = new PDO("mysql:host=$BDD_host;dbname=$BDD_base", $BDD_user, $BDD_password);
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+        // Préparation de la requête SQL
+        $SQL = "SELECT COUNT(*) FROM utilisateurs WHERE email = :email";
+        $stmt = $pdo->prepare($SQL);
+
+        // Liaison des paramètres
+        $stmt->bindParam(':email', $email);
+
+        // Exécution de la requête
+        $stmt->execute();
+
+        // Récupération du résultat
+        $count = $stmt->fetchColumn();
+
+        // Vérification si l'email existe
+        return $count > 0;
+    } catch (PDOException $e) {
+        // Gestion des erreurs
+        echo 'Erreur : ' . $e->getMessage();
+        return false;
+    }
 }

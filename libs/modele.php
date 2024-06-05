@@ -30,9 +30,14 @@ function mkUser($nom,$pren,$pays,$email, $passe)
 {
 	// Cette fonction crée un nouvel utilisateur 
 	// et renvoie l'identifiant de l'utilisateur créé
-	$c_passe = password_hash($passe, PASSWORD_DEFAULT);
-	$SQL = "INSERT INTO utilisateurs(nom,prenom,pays,email,mdp) VALUES('$nom','$pren','$pays','$email', '$passe')"; 
-	return SQLInsert($SQL);
+    
+    if (emailExists($email) == 0) 
+    {
+        $c_passe = password_hash($passe, PASSWORD_DEFAULT);
+        $SQL = "INSERT INTO utilisateurs(nom,prenom,pays,email,mdp) VALUES('$nom','$pren','$pays','$email', '$c_passe')";
+        return SQLInsert($SQL);
+    }
+    return(false);
 }
 
 function getAllJeux() {
