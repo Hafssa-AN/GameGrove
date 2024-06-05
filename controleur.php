@@ -78,7 +78,8 @@ if ($action = valider("action")) {
             case 'trouver_ami':
                 $users = getAllUsers();
                 $_SESSION['users'] = $users;
-                $addArgs = "?view=utilisateurs";
+                $addArgs = "?view=trouver_ami";
+            break;
             case 'logout' :
                     // traitement métier
                 session_destroy(); // 1) traitement 
