@@ -9,6 +9,7 @@ $addArgs = "";
 $dataQS = array();
 
 if ($action = valider("action")) {
+    
     ob_start();
     switch ($action) {
         case 'Connexion':
@@ -69,20 +70,23 @@ if ($action = valider("action")) {
                 $feedback = "Email absent";
             }
             break;
-            case 'jeux':
+            case 'jeux':  
                 $jeux = getAllJeux();
                 $_SESSION['jeux'] = $jeux;
                 $addArgs = "?view=jeux";
+            break;
+            case 'trouver_ami':
+                $users = getAllUsers();
+                $_SESSION['users'] = $users;
+                $addArgs = "?view=utilisateurs";
             case 'logout' :
                     // traitement métier
                 session_destroy(); // 1) traitement 
                     // 2) choisir la vue suivante 
                 $qs = "?view=login";
             break;
-
     }
 }
-
 $urlBase = dirname($_SERVER["PHP_SELF"]) . "/index.php";
 header("Location:" . $urlBase . $addArgs);
 ob_end_flush();

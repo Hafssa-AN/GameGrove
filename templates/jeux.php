@@ -1,13 +1,10 @@
-<?php
-include_once "../controleur.php";
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jeux</title>
-    <link rel="stylesheet" href="../css/jeux.css">
+    <link rel="stylesheet" href="./css/jeux.css">
 </head>
 <body>
     <header class="">
@@ -45,19 +42,20 @@ include_once "../controleur.php";
 
 
         <div class="jeux-grid p-2">
-            <?php foreach ($jeux as $jeu) :?>
+        <?php 
+         foreach ($_SESSION['jeux'] as $jeu) : ?>
             <figure class="jeux-container">
                 <img class="w-100" src="../recources/jeux-1.jpg" alt="">
                 <figcaption>
-                    <h3>$jeu[nom]</h3>
-                    <p>$jeu[description]</p>
+                    <h3><?php echo $jeu['nom']; ?></h3>
+                    <p><?php echo $jeu['description']; ?></p>
                     <div class="btns flex justify-content-center gap-1 mt-1">
                         <button class="cursor-pointer">JOUER</button>
                         <button class="cursor-pointer">AJOUTER</button>
                     </div>
                 </figcaption>
             </figure>
-            <?php endforeach;?>
+        <?php endforeach; ?>
 
             <figure class="jeux-container">
                 <img class="w-100" src="../recources/jeux-2.png" alt="">
