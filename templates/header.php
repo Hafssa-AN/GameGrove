@@ -21,10 +21,10 @@ if (basename($_SERVER["PHP_SELF"]) != "index.php")
                     <a href="controleur.php/?action=trouver_ami">Trouver des  Amis</a>
                 </li>
                 <li>
-                    <a href="./templates/connecter.html">se connecter</a>
+                    <a href="controleur.php/?action=connecter">se connecter</a>
                 </li>
                 <li>
-                    <a href="./templates/inscrire.php">s’inscrire</a>
+                    <a href="controleur.php/?action=inscrire">s’inscrire</a>
                 </li>
             </ul>
         </nav>

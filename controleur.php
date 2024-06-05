@@ -12,7 +12,8 @@ if ($action = valider("action")) {
     
     ob_start();
     switch ($action) {
-        case 'Connexion':
+        case 'connecter':
+            
             $feedback = false;
             if ($email = valider("email")) {
                 if ($passe = valider("password")) {
@@ -32,14 +33,15 @@ if ($action = valider("action")) {
                 } else {
                     $feedback = "Mot de passe absent";
                 }
-            } else {
+            } else{
                 $feedback = "Email absent";
             }
-            $addArgs = $feedback ? "?view=connexion_fr" : "?view=profil_fr";
+            $addArgs = $feedback ? "?view=connecter" : "?view=profile";
             break;
 
         case 'inscrire':    
             if ($email = valider("email")) {
+
                 if ($passe = valider("password")) {
                     if ($confirm_passe = valider("confirm-password")) {
                         if ($passe === $confirm_passe) {
@@ -47,12 +49,12 @@ if ($action = valider("action")) {
                                 if ($pren = valider("prenom")) {
                                     if ($pays = valider("pays")) {
                                         mkUser($nom, $pren, $pays, $email, $passe);    
-                                        $addArgs = "?view=index";
+                                        $addArgs = "?view=connecter";
                                     } else {
                                         $feedback = "Pays absent";
                                     }
                                 } else {
-                                    $feedback = "Prénom absent";
+                                    $feedback = "PrÃ©nom absent";
                                 }
                             } else {
                                 $feedback = "Nom absent";
@@ -69,28 +71,35 @@ if ($action = valider("action")) {
             } else {
                 $feedback = "Email absent";
             }
+			if ($feedback) {
+				$addArgs = "?view=inscrire";
+			}
             break;
-            case 'jeux':  
-                $jeux = getAllJeux();
-                $_SESSION['jeux'] = $jeux;
-                $addArgs = "?view=jeux";
+
+        case 'jeux':  
+            $jeux = getAllJeux();
+            $_SESSION['jeux'] = $jeux;
+            $addArgs = "?view=jeux";
             break;
-            case 'trouver_ami':
-                $users = getAllUsers();
-                $_SESSION['users'] = $users;
-                $addArgs = "?view=trouver_ami";
+
+        case 'trouver_ami':
+            $users = getAllUsers();
+            $_SESSION['users'] = $users;
+            $addArgs = "?view=trouver_ami";
             break;
-            case 'logout' :
-                    // traitement métier
-                session_destroy(); // 1) traitement 
-                    // 2) choisir la vue suivante 
-                $qs = "?view=login";
+
+        case 'logout' :
+            session_destroy();
+            $addArgs = "?view=index";
             break;
     }
+
+    if ($feedback) {
+        $_SESSION['feedback'] = $feedback;
+    }
 }
+
 $urlBase = dirname($_SERVER["PHP_SELF"]) . "/index.php";
 header("Location:" . $urlBase . $addArgs);
 ob_end_flush();
 ?>
-
-    

@@ -8,28 +8,6 @@
     <link rel="stylesheet" href="../css/profile.css">
 </head>
 <body>
-    <header class="">
-        <nav class="nav flex justify-content-between">
-            <div class="logo">GameGrove</div>
-            <ul class="nav-tabs">
-                <li>
-                    <a href="index.html">accueil</a>
-                </li>
-                <li>
-                    <a href="jeux.html">Jeux</a>
-                </li>
-                <li>
-                    <a href="ajouter.html">Trouver des  Amis</a>
-                </li>
-                <li>
-                    <a href="connecter.html">se connecter</a>
-                </li>
-                <li>
-                    <a href="inscrire.html">s’inscrire</a>
-                </li>
-            </ul>
-        </nav>
-    </header>
 
     <h1 class="p-3">Mon Profile</h1>
     <hr style="width: 70%;">
