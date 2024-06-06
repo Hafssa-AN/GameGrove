@@ -14,7 +14,7 @@ function verifUser($login,$password)
 	// il faut appeler session_start ! 
 	// Le controleur le fait déjà !!
 	$_SESSION["email"] = $login;
-	$_SESSION["password"] = $id;
+	$_SESSION["id"] = $id;
 	$_SESSION["connect"] = true;
 	return true;	
 }

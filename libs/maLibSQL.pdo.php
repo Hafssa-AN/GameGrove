@@ -59,6 +59,23 @@ function SQLInsert($sql)
 	$dbh = null; 
 	return $lastInsertId;
 }
+function SQLGetAll($sql)
+{
+	global $BDD_host, $BDD_base, $BDD_user, $BDD_password;
+    
+    try {
+        $dbh = new PDO("mysql:host=$BDD_host;dbname=$BDD_base", $BDD_user, $BDD_password);
+        $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $dbh->exec("SET CHARACTER SET utf8");
+
+        $stmt = $dbh->query($sql);
+        $stmt->execute();
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    } catch (PDOException $e) {
+        die("<font color=\"red\">Erreur de connexion : " . $e->getMessage() . "</font>");
+    }
+}
 
 function emailExists($email) {
 	global $BDD_host;

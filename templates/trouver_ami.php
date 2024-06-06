@@ -17,7 +17,7 @@
         foreach ($_SESSION['users'] as $user) : ?>
         <div class="">
             <div class="friend-element flex mb-2">
-                <img class="h-100" src="../recources/friend-1.png" alt="">
+                <img class="h-100" src="recources/<?php echo $user['u_image']; ?>" alt="">
                 <div class="ml-3 flex flex-column justify-content-between w-100 p-1">
                     <strong class=""><?php $user['nom'].' '. $user['prenom']?></strong>
                     <div class="btns flex justify-content-between w-100">

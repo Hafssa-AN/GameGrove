@@ -18,50 +18,32 @@
             </div>
         </div>
 
-
         <div class="jeux-grid p-2">
         <?php 
-         foreach ($_SESSION['jeux'] as $jeu) : ?>
-            <figure class="jeux-container">
-                <img class="w-100" src="../recources/jeux-1.jpg" alt="">
-                <figcaption>
-                    <h3><?php echo $jeu['nom']; ?></h3>
-                    <p><?php echo $jeu['description']; ?></p>
-                    <div class="btns flex justify-content-center gap-1 mt-1">
-                        <button class="cursor-pointer">JOUER</button>
-                        <button class="cursor-pointer">AJOUTER</button>
-                    </div>
-                </figcaption>
-            </figure>
-        <?php endforeach; ?>
-
-            <figure class="jeux-container">
-                <img class="w-100" src="../recources/jeux-2.png" alt="">
-                <figcaption>
-                    <h3>Fortnite</h3>
-                    <p>offre une expérience multijoueur dynamique</p>
-                    <div class="btns flex justify-content-center gap-1 mt-1">
-                        <button class="cursor-pointer">JOUER</button>
-                        <button class="cursor-pointer">AJOUTER</button>
-                    </div>
-                </figcaption>
-            </figure>
-
-            <figure class="jeux-container">
-                <img class="w-100" src="../recources/jeux-3.png" alt="">
-                <figcaption>
-                    <h3>Fortnite</h3>
-                    <p>offre une expérience multijoueur dynamique</p>
-                    <div class="btns flex justify-content-center gap-1 mt-1">
-                        <button class="cursor-pointer">JOUER</button>
-                        <button class="cursor-pointer">AJOUTER</button>
-                    </div>
-                </figcaption>
-            </figure>
-
-            
-
-            
+        if (isset($_SESSION['jeux']) && is_array($_SESSION['jeux'])) {
+            foreach ($_SESSION['jeux'] as $jeu) : ?>
+                <figure class="jeux-container">
+                    <a href="controleur.php/?action=details_jeu&id_jeu=<?php echo $jeu['j_id']; ?>">
+                        <img class="w-100" src="recources/<?php echo htmlspecialchars($jeu['j_image']); ?>" alt="">
+                    </a>
+                    <figcaption>
+                        <h3>
+                            <a href="controleur.php/?action=details_jeu&id_jeu=<?php echo $jeu['j_id']; ?>">
+                                <?php echo htmlspecialchars($jeu['nom']); ?>
+                            </a>
+                        </h3>
+                        <p><?php echo htmlspecialchars($jeu['description']); ?></p>
+                        <div class="btns flex justify-content-center gap-1 mt-1">
+                        <?php if(isset($_SESSION["email"])): ?>
+                            <button class="cursor-pointer"><a href="controleur.php/?action=jouer">JOUER</a></button>
+                            <button class="cursor-pointer"><a href="controleur.php/?action=ajouter&id_jeu=<?php echo $jeu['j_id']; ?>">AJOUTER</a></button>
+                        <?php endif; ?>
+                        </div>
+                    </figcaption>
+                </figure>
+            <?php endforeach; 
+        }
+        ?>
         </div>
     </section>
 </body>

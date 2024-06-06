@@ -40,38 +40,35 @@ function mkUser($nom,$pren,$pays,$email, $passe)
     return(false);
 }
 
-function getAllJeux() {
-    global $BDD_host, $BDD_base, $BDD_user, $BDD_password;
-    
-    try {
-        $dbh = new PDO("mysql:host=$BDD_host;dbname=$BDD_base", $BDD_user, $BDD_password);
-        $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $dbh->exec("SET CHARACTER SET utf8");
+function getAll($tab, $condition = '') {
 
-        $stmt = $dbh->prepare("SELECT * FROM jeux");
-        $stmt->execute();
-
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
-    } catch (PDOException $e) {
-        die("<font color=\"red\">Erreur de connexion : " . $e->getMessage() . "</font>");
+    $sql = "SELECT * FROM " . $tab;
+    if (!empty($condition)) {
+        $sql .= " " . $condition;
     }
+    return SQLGetAll($sql);
 }
 
-function getAllUsers()
+function GETJeu($id)
 {
-	global $BDD_host, $BDD_base, $BDD_user, $BDD_password;
-    
-    try {
-        $dbh = new PDO("mysql:host=$BDD_host;dbname=$BDD_base", $BDD_user, $BDD_password);
-        $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $dbh->exec("SET CHARACTER SET utf8");
+	// Vérifie l'identité d'un utilisateur 
+	// dont les identifiants sont passes en paramètre
+	// renvoie faux si user inconnu
+	// renvoie l'id de l'utilisateur si succès
 
-        $stmt = $dbh->prepare("SELECT * FROM utilisateurs");
-        $stmt->execute();
+	$SQL="SELECT * FROM jeux WHERE j_id='$id'";
 
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
-    } catch (PDOException $e) {
-        die("<font color=\"red\">Erreur de connexion : " . $e->getMessage() . "</font>");
-    }
+	return SQLGetAll($SQL);
+	// si on avait besoin de plus d'un champ
+	// on aurait du utiliser SQLSelect
 }
 
+function GETUserJeux($id)
+{
+    $sql = "SELECT j.*
+            FROM jeux j
+            JOIN u_jeu uj ON j.j_id = uj.j_id
+            JOIN utilisateurs u ON uj.u_id = u.u_id
+            WHERE u.u_id = '$id';";
+    return SQLGetAll($sql);   
+}

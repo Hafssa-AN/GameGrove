@@ -12,27 +12,27 @@
     <form action="controleur.php" class="sinscrire-form" method="POST">
         <div class="flex justify-content-between align-items-center">
             <label>Nom:</label>
-            <input type="text" name="nom" required />
+            <input type="text" name="nom" id ="nom" required />
         </div>
         <div class="flex justify-content-between align-items-center">
             <label>Prénom:</label>
-            <input type="text" name="prenom" required />
+            <input type="text" name="prenom" id ="prenom" required />
         </div>
         <div class="flex justify-content-between align-items-center">
             <label>Pays:</label>
-            <input type="text" name="pays" required />
+            <input type="text" name="pays" id ="id" required />
         </div>
         <div class="flex justify-content-between align-items-center">
             <label>Email:</label>
-            <input type="email" name="email" required />
+            <input type="email" name="email" id ="email" required />
         </div>
         <div class="flex justify-content-between align-items-center">
             <label>Mot de passe:</label>
-            <input type="password" name="password" required />
+            <input type="password" name="password" id ="password" required />
         </div>
         <div class="flex justify-content-between align-items-center">
             <label>Confirmer le mot de passe:</label>
-            <input type="password" name="confirm-password" required />
+            <input type="password" name="confirm-password" id ="confirm-password" required />
         </div>
         <input type="submit" name="action" value="inscrire" class="cursor-pointer">
     </form>

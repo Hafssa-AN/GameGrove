@@ -54,7 +54,7 @@ if ($action = valider("action")) {
                                         $feedback = "Pays absent";
                                     }
                                 } else {
-                                    $feedback = "PrÃ©nom absent";
+                                    $feedback = "Prenom absent";
                                 }
                             } else {
                                 $feedback = "Nom absent";
@@ -80,20 +80,34 @@ if ($action = valider("action")) {
             break;
 
         case 'jeux':  
-            $jeux = getAllJeux();
+            $jeux = getAll("jeux");
             $_SESSION['jeux'] = $jeux;
             $addArgs = "?view=jeux";
             break;
 
         case 'trouver_ami':
-            $users = getAllUsers();
+            $users = getAll("utilisateurs");
             $_SESSION['users'] = $users;
             $addArgs = "?view=trouver_ami";
             break;
-
+        case 'profile':
+            $jeux = GETUserJeux($_SESSION["id"]);
+            $_SESSION['u_jeux'] = $jeux;
+            $addArgs = "?view=profile";
+        break;
+        case 'ajouter':
+            
+        break;
+        case 'supprimer':
+            
+        break;
+        case 'details_jeu':
+            $_SESSION['jeu'] = GETJeu($_GET['id_jeu']);
+            $addArgs = "?view=jeux-detail";
+        break;
         case 'logout' :
             session_destroy();
-            $addArgs = "?view=index";
+            $addArgs = "?view=acceuil";
             break;
     }
     if ($feedback) {

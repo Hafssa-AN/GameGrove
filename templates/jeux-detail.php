@@ -4,44 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>jeux-detail</title>
-    <link rel="stylesheet" href="../css/jeux-detail.css">
+    <link rel="stylesheet" href="css/jeux-detail.css">
 
 </head>
 <body>
-    <header class="">
-        <nav class="nav flex justify-content-between">
-            <div class="logo">GameGrove</div>
-            <ul class="nav-tabs">
-                <li>
-                    <a href="index.html">accueil</a>
-                </li>
-                <li>
-                    <a href="jeux.html">Jeux</a>
-                </li>
-                <li>
-                    <a href="ajouter.html">Trouver des  Amis</a>
-                </li>
-                <li>
-                    <a href="connecter.html">se connecter</a>
-                </li>
-                <li>
-                    <a href="inscrire.html">s’inscrire</a>
-                </li>
-            </ul>
-        </nav>
-    </header>
 
-    <h1 class="p-3">Fortnite</h1>
+    <h1 class="p-3"><?php $jeu = $_SESSION['jeu'][0]; echo $jeu['nom'];?></h1>
     <section>
         <div class="game-detail-grid">
             <figure>
-                <img class="w-100" src="../recources/detail-1.jpg" alt="">
+                <img class="w-100" src="recources/<?php echo $jeu['j_image'];?>" alt="">
                 <figcaption class="p-1">
-                    <strong>Fortnite</strong>
-                    <p>offre une expérience multijoueur dynamique</p>
+                    <strong><?php echo $jeu['nom']?></strong>
+                    <p><?php echo $jeu['description']?></p>
                     <div class="mt-1 btns flex justify-content-between w-75 mx-auto">
-                        <button>JOUER</button>
-                        <button>AJOUTER</button>
+                        <?php if(isset($_SESSION["email"])): ?>
+                            <button class="cursor-pointer"><a href="controleur.php/?action=jouer">JOUER</a></button>
+                            <button class="cursor-pointer"><a href="controleur.php/?action=ajouter&id_jeu=<?php echo $jeu['j_id']; ?>">AJOUTER</a></button>
+                        <?php endif; ?>
                     </div>
                 </figcaption>
             </figure>

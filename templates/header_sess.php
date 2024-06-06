@@ -18,10 +18,10 @@ if (basename($_SERVER["PHP_SELF"]) != "index.php")
                     <a href="controleur.php?action=jeux">Jeux</a>
                 </li>
                 <li>
-                    <a href="./templates/ajouter.html">Trouver des  Amis</a>
+                    <a href="controleur.php/?action=trouver_ami">Trouver des  Amis</a>
                 </li>
                 <li>
-                    <a href="./templates/profile.html">Mon profile</a>
+                    <a href="controleur.php?action=profile">Mon profile</a>
                 </li>
                 <li>
                     <a href="controleur.php?action=logout">deconnecter</a>
