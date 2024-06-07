@@ -30,7 +30,7 @@
         <!-- dik tswira lli 3la limn -->
         <div class="right-side p-1">
             <img class="mb-2" src="recources/profile-avatar.png" alt="profile-avatar">
-            <strong class="mb-1">MON NOM</strong>
+            <strong class="mb-1"><?php echo $_SESSION['new_user'][0]['prenom'] . " ".$_SESSION['new_user'][0]['nom']?></strong>
             <div class="mb-1">AUTRE INFOS</div>
             <button>Modifier mes donnees</button>
         </div>

@@ -102,3 +102,22 @@ function Search($mot)
         die("<font color=\"red\">Erreur de connexion : " . $e->getMessage() . "</font>");
     }
 }
+
+function GETuser($id)
+{
+    global $BDD_host, $BDD_base, $BDD_user, $BDD_password;
+
+    try {
+        $dbh = new PDO("mysql:host=$BDD_host;dbname=$BDD_base", $BDD_user, $BDD_password);
+        $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $dbh->exec("SET CHARACTER SET utf8");
+
+        $sql = "SELECT * FROM utilisateurs WHERE u_id = ?";
+        $stmt = $dbh->prepare($sql);
+        $stmt->execute([$id]);
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    } catch (PDOException $e) {
+        die("<font color=\"red\">Erreur de connexion : " . $e->getMessage() . "</font>");
+    }
+}

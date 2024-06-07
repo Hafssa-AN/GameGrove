@@ -21,8 +21,7 @@
                 <div class="ml-3 flex flex-column justify-content-between w-100 p-1">
                     <strong class=""><?php $user['nom'].' '. $user['prenom']?></strong>
                     <div class="btns flex justify-content-between w-100">
-                        <button class="cursor-pointer">Voir le profile</button>
-                        <button class="cursor-pointer">Modifier</button>
+                        <button class="cursor-pointer"><a href="controleur.php/?action=profile&u_prof=<?php echo $user['u_id'];?> ">Voir le profile</a></button>
                         <button class="cursor-pointer">Supprimer</button>
                     </div>
                 </div>

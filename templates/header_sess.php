@@ -21,7 +21,7 @@ if (basename($_SERVER["PHP_SELF"]) != "index.php")
                     <a href="controleur.php/?action=trouver_ami">Trouver des  Amis</a>
                 </li>
                 <li>
-                    <a href="controleur.php?action=profile">Mon profile</a>
+                    <a href="controleur.php?action=profile&u_prof=<?php echo $_SESSION['id']?>">Mon profile</a>
                 </li>
                 <li>
                     <a href="controleur.php?action=logout">deconnecter</a>

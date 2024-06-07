@@ -96,7 +96,8 @@ if ($action = valider("action")) {
             $addArgs = "?view=trouver_ami";
             break;
         case 'profile':
-            $jeux = GETUserJeux($_SESSION["id"]);
+            $jeux = GETUserJeux($_REQUEST["u_prof"]);
+            $_SESSION['new_user'] = GETuser($_REQUEST["u_prof"]);
             $_SESSION['u_jeux'] = $jeux;
             $addArgs = "?view=profile";
         break;

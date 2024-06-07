@@ -109,4 +109,5 @@ function emailExists($email) {
         echo 'Erreur : ' . $e->getMessage();
         return false;
     }
+
 }
