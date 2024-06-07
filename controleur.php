@@ -35,7 +35,7 @@ if ($action = valider("action")) {
             } else{
                 $feedback = "Email absent";
             }
-            $addArgs = $feedback ? "?view=connecter" : "?view=profile";
+            $addArgs = $feedback ? "?view=connecter" : "?view=accueil";
             break;
 
         case 'inscrire':    
@@ -86,6 +86,11 @@ if ($action = valider("action")) {
             break;
 
         case 'trouver_ami':
+            if(!isset($_SESSION["email"]))
+            {
+                $addArgs = "?view=connecter";
+                break;
+            }
             $users = getAll("utilisateurs");
             $_SESSION['users'] = $users;
             $addArgs = "?view=trouver_ami";
@@ -96,18 +101,24 @@ if ($action = valider("action")) {
             $addArgs = "?view=profile";
         break;
         case 'ajouter':
-            
+            AddJeu($_GET['id_jeu']);
+            $addArgs = "?view=jeux";
         break;
         case 'supprimer':
-            
+            Dropjeu($_GET['id_jeu']);
+            $addArgs = "?view=jeux";
         break;
         case 'details_jeu':
             $_SESSION['jeu'] = GETJeu($_GET['id_jeu']);
             $addArgs = "?view=jeux-detail";
         break;
+        case 'search_jeux' :
+            $_SESSION['rech_jeux'] = Search($_GET['search_jeux']);
+            $addArgs = "?view=jeu_rech";
+        break;
         case 'logout' :
             session_destroy();
-            $addArgs = "?view=acceuil";
+            $addArgs = "?view=accueil";
             break;
     }
     if ($feedback) {

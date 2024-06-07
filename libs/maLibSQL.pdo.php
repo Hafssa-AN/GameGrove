@@ -59,6 +59,7 @@ function SQLInsert($sql)
 	$dbh = null; 
 	return $lastInsertId;
 }
+
 function SQLGetAll($sql)
 {
 	global $BDD_host, $BDD_base, $BDD_user, $BDD_password;

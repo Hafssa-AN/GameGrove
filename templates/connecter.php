@@ -9,9 +9,6 @@
 <body>
 
     <?php if ($_SESSION['feedback']): ?>
-        <div class="feedback">
-            <?php echo htmlspecialchars($_SESSION['feedback']); ?>
-        </div>
     <?php endif; ?>
     <h1 class="text-center sinscrire-h1">Se connecter</h1>
     <form action="controleur.php" class="sinscrire-form" method="POST">

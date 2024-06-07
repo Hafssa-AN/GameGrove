@@ -1,22 +1,25 @@
+<?php
+session_start();?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Se connecter</title>
-    <link rel="stylesheet" href="../css/utilisateurs.css">
+    <link rel="stylesheet" href="./css/ajouter.css">
 </head>
 <body>
+
+
+
     <section class="p-3">
-        <div class="flex justify-content-between align-items-center">
-            <h1 class="ajouter-title">Les utilisateurs</h1>
-            <button class="ajouter-btn">Ajouter</button>
-        </div>
+        <h1 class="ajouter-title">Ajouter Des Amis</h1>
+    
         <?php 
         foreach ($_SESSION['users'] as $user) : ?>
         <div class="">
             <div class="friend-element flex mb-2">
-                <img class="h-100" src="../recources/friend-1.png" alt="">
+                <img class="h-100" src="recources/<?php echo $user['u_image']; ?>" alt="">
                 <div class="ml-3 flex flex-column justify-content-between w-100 p-1">
                     <strong class=""><?php $user['nom'].' '. $user['prenom']?></strong>
                     <div class="btns flex justify-content-between w-100">
@@ -28,8 +31,12 @@
             </div>
         </div>
         <?php endforeach; ?>
-
-
+        
     </section>
+
+
+
+
+
 </body>
 </html>

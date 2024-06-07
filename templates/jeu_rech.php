@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,8 +23,8 @@
 
         <div class="jeux-grid p-2">
         <?php 
-        if (isset($_SESSION['jeux']) && is_array($_SESSION['jeux'])) {
-            foreach ($_SESSION['jeux'] as $jeu) : ?>
+        if (isset($_SESSION['rech_jeux']) && is_array($_SESSION['jeux'])) {
+            foreach ($_SESSION['rech_jeux'] as $jeu) : ?>
                 <figure class="jeux-container">
                     <a href="controleur.php/?action=details_jeu&id_jeu=<?php echo $jeu['j_id']; ?>">
                         <img class="w-100" src="recources/<?php echo htmlspecialchars($jeu['j_image']); ?>" alt="">
